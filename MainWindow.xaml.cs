@@ -1,8 +1,4 @@
-﻿using Amazon;
-using Amazon.DynamoDBv2;
-using Amazon.DynamoDBv2.DocumentModel;
-using Amazon.Runtime;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,85 +12,189 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Table = Amazon.DynamoDBv2.DocumentModel.Table;
+using System.Net.Http;
+using System.Text;
+using System.Text.Json;
+using CountryAPIWPF.Models;
 
 
-namespace CountryAPI_WPF
+
+namespace CountryAPIWPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static AmazonDynamoDBClient client;
+
+        private static readonly HttpClient client = new HttpClient();
+
+        private static string url = "http://countryapi-dev.ca-central-1.elasticbeanstalk.com/Country/";
+
+        //private static string url = "https://localhost:44378/Country/";
+        //private static string url = "https://localhost:44349/api/Countries/";
+        private static Country[] results;
+        private static Country res = new Country();
+        private int highestId = 0;
+        private int currentId;
+        public string putName;
         public MainWindow()
         {
             InitializeComponent();
-            PopulateListBox();
+            //tempPost();
+            CallGetAll();
+
         }
-        private void PopulateListBox()
+
+        private void ListBoxItem_Selected(object sender, RoutedEventArgs e)
         {
-            var credentials = new BasicAWSCredentials("AKIAWLA4W37UM7AHKYY2", "nL4cQdNbWLGpUpE/3v1oRKjGmHiG/4++rWjgS8jw");
-            client = new AmazonDynamoDBClient(credentials, RegionEndpoint.CACentral1);
+        }
 
+        /*public static void tempPost()
+        {
 
-            Table table = Table.LoadTable(client, "Countries");
+            Country objInsert = new Country();
+            Country objInsert2 = new Country();
 
-            Console.WriteLine(table);
+            objInsert.id = 4;
+            objInsert.name = "China";
+            objInsert.continent = "Asia";
+            objInsert.capitalCity = "Beijing";
+            objInsert.population = "100001";
+            objInsert.language = "Mandarin";
+            objInsert.currency = "CNY";
+            objInsert.currencyValue = 0.15;
 
+            objInsert2.id = 5;
+            objInsert2.name = "Japan";
+            objInsert2.continent = "Asia";
+            objInsert2.capitalCity = "Tokyo";
+            objInsert2.population = "100006";
+            objInsert2.language = "Japanese";
+            objInsert2.currency = "JPY";
+            objInsert2.currencyValue = 0.0096;
 
-            ScanFilter scanFilter = new ScanFilter();
-            //scanFilter.AddCondition("id", ScanOperator.GreaterThan, 0);
+            string jsonObjectPost = JsonSerializer.Serialize(objInsert);
+            string jsonObjectPost2 = JsonSerializer.Serialize(objInsert2);
 
-            Search search = table.Scan(scanFilter);
+            var contentToPost = new StringContent(jsonObjectPost, Encoding.UTF8, "application/json");
+            var contentToPost2 = new StringContent(jsonObjectPost2, Encoding.UTF8, "application/json");
 
-            List<Document> documentList = new List<Document>();
-
-            do
-            {
-                documentList = search.GetNextSet();
-
-            } while (!search.IsDone);
-
-            foreach (var documents in documentList)
-            {
-                countries.Items.Add(documents["CountryName"]);
-            }
+            var response = client.PostAsync(url, contentToPost).Result;
+            var response2 = client.PostAsync(url, contentToPost2).Result;
 
             
+        }*/
 
+        public void CallGetAll()
+        {
+
+            HttpResponseMessage response = client.GetAsync(url+"AllCountryInfo/").Result;
+            string jsonResponse = response.Content.ReadAsStringAsync().Result;
+            results = JsonSerializer.Deserialize<Country[]>(jsonResponse);
+            foreach (Country e in results)
+            {
+                countries.Items.Add(e.countryName);
+                if(e.id > highestId)
+                {
+                    highestId = e.id;
+                }
+            }
         }
+
         private void countries_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string curItem = countries.SelectedItem.ToString();
+            if (countries.SelectedItem != null) {
+                countryInfoRefresh();
+        }
+           
+        }
 
-            Table table = Table.LoadTable(client, "Countries");
-
-            ScanFilter scanFilter = new ScanFilter();
-            scanFilter.AddCondition("CountryName", ScanOperator.Equal, curItem);
-
-            Search search = table.Scan(scanFilter);
-
-            List<Document> documentList = new List<Document>();
-            do
+        public void countryInfoRefresh()
+        {
+            if (countries.SelectedItem != null)
             {
-                documentList = search.GetNextSet();
+                string curItem = countries.SelectedItem.ToString();
+                foreach (Country c in results)
+                {
+                    if (c.countryName == curItem)
+                    {
+                        countryName.Content = c.countryName;
+                        continent.Content = c.continent;
+                        capitalCity.Content = c.capitalCity;
+                        population.Content = c.population;
+                        language.Content = c.primaryLanguage;
+                        currency.Content = c.currency;
+                        currentId = c.id;
 
-            } while (!search.IsDone);
 
-            countryName.Content = documentList[0]["CountryName"];
-            continent.Content = documentList[0]["Continent"];
-            capitalCity.Content = documentList[0]["CapitalCity"];
-            population.Content = documentList[0]["Population"];
-            language.Content = documentList[0]["PrimaryLanguage"];
-            currency.Content = documentList[0]["Currency"];
-
+                    }
+                }
+            }
         }
 
         private void exchangeBtn_Click(object sender, RoutedEventArgs e)
         {
-            ExchangeWindow win2 = new ExchangeWindow();
+            exchangeWindow win2 = new exchangeWindow(results, url);
             win2.Show();
+        }
+
+        //Put
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //Country putCountry = new Country();
+            if (countries.SelectedItem != null)
+            {
+                foreach (Country c in results)
+                {
+                    if (c.id == currentId)
+                    {
+                        putName = c.countryName;
+
+
+                    }
+                }
+
+                PutWindow win = new PutWindow(putName, url);
+                win.Owner = this;
+                win.Show();
+            }
+        }
+
+        //Post
+        private void AddBtn_Click(object sender, RoutedEventArgs e)
+        {
+            PostWindow win = new PostWindow(highestId, url); ;
+            win.Owner = this;
+            win.Show();
+        }
+
+        private void refreshbtn_Click(object sender, RoutedEventArgs e)
+        {
+            refresh();
+        }
+
+        public void refresh()
+        {
+            countries.Items.Clear();
+            CallGetAll();
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            if (countries.SelectedItem != null)
+            {
+                string curItem = countries.SelectedItem.ToString();
+                foreach (Country c in results)
+                {
+                    if (c.countryName == curItem)
+                    {
+                        String name = c.countryName;
+                        var response = client.DeleteAsync(url + "DeleteCountry/" + name).Result;
+                        refresh();
+                    }
+                }
+            }
         }
     }
 }
