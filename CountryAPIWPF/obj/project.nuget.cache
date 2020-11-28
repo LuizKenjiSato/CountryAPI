@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Uf1Z1BlnW0yunjXTzoeCSxy12YI2XTITieFDHHwcJ4w4lsiUmg6Ntmg1TJOxPyDKEaC7D0GFuQ5bfH5QwHXkLA==",
+  "dgSpecHash": "5lcGyO+f+bk8MFzW4X56LfpN+cAjZaTBglKaKb+9OolZBq2Xp6r26sdgCyNmBTBnGBzOl5Owcjq6NZVSg9hfrQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\16479\\Documents\\GitHub\\CountryAPI\\CountryAPIWPF\\CountryAPIWPF.csproj",
+  "projectFilePath": "C:\\Users\\luizs\\Desktop\\New folder (3)\\CountryAPI\\CountryAPIWPF\\CountryAPIWPF.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\16479\\.nuget\\packages\\awssdk.core\\3.5.1.41\\awssdk.core.3.5.1.41.nupkg.sha512",
-    "C:\\Users\\16479\\.nuget\\packages\\awssdk.dynamodbv2\\3.5.4\\awssdk.dynamodbv2.3.5.4.nupkg.sha512"
+    "C:\\Users\\luizs\\.nuget\\packages\\awssdk.core\\3.5.1.41\\awssdk.core.3.5.1.41.nupkg.sha512",
+    "C:\\Users\\luizs\\.nuget\\packages\\awssdk.dynamodbv2\\3.5.4\\awssdk.dynamodbv2.3.5.4.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\16479\\Documents\\GitHub\\CountryAPI\\CountryAPIWPF\\CountryAPIWPF.csproj": {}
+    "C:\\Users\\luizs\\Desktop\\New folder (3)\\CountryAPI\\CountryAPIWPF\\CountryAPIWPF.csproj": {}
   },
   "projects": {
-    "C:\\Users\\16479\\Documents\\GitHub\\CountryAPI\\CountryAPIWPF\\CountryAPIWPF.csproj": {
+    "C:\\Users\\luizs\\Desktop\\New folder (3)\\CountryAPI\\CountryAPIWPF\\CountryAPIWPF.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\16479\\Documents\\GitHub\\CountryAPI\\CountryAPIWPF\\CountryAPIWPF.csproj",
+        "projectUniqueName": "C:\\Users\\luizs\\Desktop\\New folder (3)\\CountryAPI\\CountryAPIWPF\\CountryAPIWPF.csproj",
         "projectName": "CountryAPIWPF",
-        "projectPath": "C:\\Users\\16479\\Documents\\GitHub\\CountryAPI\\CountryAPIWPF\\CountryAPIWPF.csproj",
-        "packagesPath": "C:\\Users\\16479\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\16479\\Documents\\GitHub\\CountryAPI\\CountryAPIWPF\\obj\\",
+        "projectPath": "C:\\Users\\luizs\\Desktop\\New folder (3)\\CountryAPI\\CountryAPIWPF\\CountryAPIWPF.csproj",
+        "packagesPath": "C:\\Users\\luizs\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\luizs\\Desktop\\New folder (3)\\CountryAPI\\CountryAPIWPF\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\16479\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\luizs\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -65,7 +68,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
