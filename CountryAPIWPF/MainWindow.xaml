@@ -32,7 +32,17 @@
         <Button x:Name="EditBtn" Content="Edit Info (Put)" HorizontalAlignment="Left" Margin="322,301,0,0" VerticalAlignment="Top" Height="33" Width="108" Click="Button_Click"/>
         <Button x:Name="AddBtn" Content="Add New (Post)" HorizontalAlignment="Left" Margin="322,359,0,0" VerticalAlignment="Top" Height="33" Width="108" Click="AddBtn_Click"/>
         <Button x:Name="Delete" Content="Delete Selected" HorizontalAlignment="Left" Margin="322,420,0,0" VerticalAlignment="Top" Height="33" Width="108" Click="Delete_Click"/>
-        <Button x:Name="refreshbtn" Content="Refresh" HorizontalAlignment="Left" Margin="213,54,0,0" VerticalAlignment="Top" Click="refreshbtn_Click"/>
+        <Button x:Name="refreshbtn" Content="Refresh" HorizontalAlignment="Left" Margin="203,57,0,0" VerticalAlignment="Top" Click="refreshbtn_Click"/>
+        <TextBox x:Name="SearchBox"  HorizontalAlignment="Left" Margin="371,21,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Search:" HorizontalAlignment="Left" Margin="323,17,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="searchCombo" HorizontalAlignment="Left" Margin="510,19,0,0" VerticalAlignment="Top" Width="178">
+            <ComboBoxItem Content="Country Name"/>
+            <ComboBoxItem Content="Capital City"/>
+            <ComboBoxItem Content="Currency"/>
+            <ComboBoxItem Content="Language"/>
+        </ComboBox>
+        <Button x:Name="SearchBtn" Content="Search" HorizontalAlignment="Left" Margin="703,19,0,0" VerticalAlignment="Top" Click="SearchBtn_Click"/>
+        <Label x:Name="testl" Content="Label" HorizontalAlignment="Left" Margin="29,17,0,0" VerticalAlignment="Top"/>
 
 
     </Grid>

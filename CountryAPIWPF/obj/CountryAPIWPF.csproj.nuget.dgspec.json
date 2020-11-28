@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\16479\\source\\repos\\CountryAPIWPF\\CountryAPIWPF\\CountryAPIWPF.csproj": {}
+    "C:\\Users\\16479\\Documents\\GitHub\\CountryAPI\\CountryAPIWPF\\CountryAPIWPF.csproj": {}
   },
   "projects": {
-    "C:\\Users\\16479\\source\\repos\\CountryAPIWPF\\CountryAPIWPF\\CountryAPIWPF.csproj": {
+    "C:\\Users\\16479\\Documents\\GitHub\\CountryAPI\\CountryAPIWPF\\CountryAPIWPF.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\16479\\source\\repos\\CountryAPIWPF\\CountryAPIWPF\\CountryAPIWPF.csproj",
+        "projectUniqueName": "C:\\Users\\16479\\Documents\\GitHub\\CountryAPI\\CountryAPIWPF\\CountryAPIWPF.csproj",
         "projectName": "CountryAPIWPF",
-        "projectPath": "C:\\Users\\16479\\source\\repos\\CountryAPIWPF\\CountryAPIWPF\\CountryAPIWPF.csproj",
+        "projectPath": "C:\\Users\\16479\\Documents\\GitHub\\CountryAPI\\CountryAPIWPF\\CountryAPIWPF.csproj",
         "packagesPath": "C:\\Users\\16479\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\16479\\source\\repos\\CountryAPIWPF\\CountryAPIWPF\\obj\\",
+        "outputPath": "C:\\Users\\16479\\Documents\\GitHub\\CountryAPI\\CountryAPIWPF\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\16479\\AppData\\Roaming\\NuGet\\NuGet.Config",

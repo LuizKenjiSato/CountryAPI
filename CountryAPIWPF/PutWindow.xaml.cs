@@ -32,7 +32,7 @@ namespace CountryAPIWPF
         {
             InitializeComponent();
             url = u;
-            HttpResponseMessage response = client.GetAsync(url + "CountryInfo/"+c).Result;
+            HttpResponseMessage response = client.GetAsync(url + "CountryInfo/Country/"+c).Result;
             string jsonResponse = response.Content.ReadAsStringAsync().Result;
             oldCountry = JsonSerializer.Deserialize<Country>(jsonResponse);
             oldId = oldCountry.id;

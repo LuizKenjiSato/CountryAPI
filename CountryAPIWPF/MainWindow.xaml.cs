@@ -196,5 +196,88 @@ namespace CountryAPIWPF
                 }
             }
         }
+
+        private void SearchBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Country oldCountry = new Country();
+            HttpResponseMessage response;
+            string jsonResponse;
+            int selectedIndex = searchCombo.SelectedIndex;
+            Object selectedItem = searchCombo.SelectedItem;
+
+            string a = selectedItem.ToString();
+            string s = a.Substring(38);
+            
+            string se = SearchBox.Text;
+
+            switch (s) 
+            {
+                case "Country Name":
+                    countries.Items.Clear();
+                    response = client.GetAsync(url + "CountryInfo/Country/" + se).Result;
+                    jsonResponse = response.Content.ReadAsStringAsync().Result;
+                    if (jsonResponse == "") { }
+                    else
+                    {
+                        oldCountry = JsonSerializer.Deserialize<Country>(jsonResponse);
+
+                        countries.Items.Add(oldCountry.countryName);
+                    }
+                    break;
+                case "Capital City":
+                    countries.Items.Clear();
+                    response = client.GetAsync(url + "CountryInfo/Capital/" + se).Result;
+                    jsonResponse = response.Content.ReadAsStringAsync().Result;
+                    if (jsonResponse == "") { }
+                    else
+                    {
+                        oldCountry = JsonSerializer.Deserialize<Country>(jsonResponse);
+
+                        countries.Items.Add(oldCountry.countryName);
+                    }
+                    break;
+                case "Language":
+                    countries.Items.Clear();
+                    response = client.GetAsync(url + "CountryInfo/Language/" + se).Result;
+
+                    jsonResponse = response.Content.ReadAsStringAsync().Result;
+                    if (jsonResponse == "") { }
+                    else
+                    {
+                        results = JsonSerializer.Deserialize<Country[]>(jsonResponse);
+                        foreach (Country c in results)
+                        {
+                            countries.Items.Add(c.countryName);
+                            if (c.id > highestId)
+                            {
+                                highestId = c.id;
+                            }
+                        }
+                    }
+                    break;
+                case "Currency":
+                    countries.Items.Clear();
+                    response = client.GetAsync(url + "CountryInfo/Currency/" + se).Result;
+                    jsonResponse = response.Content.ReadAsStringAsync().Result;
+                    if (jsonResponse == "") { }
+                    else
+                    {
+                        results = JsonSerializer.Deserialize<Country[]>(jsonResponse);
+                        foreach (Country c in results)
+                        {
+                            countries.Items.Add(c.countryName);
+                            if (c.id > highestId)
+                            {
+                                highestId = c.id;
+                            }
+                        }
+                    }
+                    break;
+                    
+
+
+            }
+
+        }
     }
 }
