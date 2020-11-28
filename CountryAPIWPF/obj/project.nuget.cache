@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Jtq22cSIRsIpcbAL9xCZ9OsnPvuGXa/gz9bQbrO/edO1VUgzCNfNSbhv0L9reIeIJPsZzEhEjx8ixEnrrLItoA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\16479\\source\\repos\\CountryAPIWPF\\CountryAPIWPF\\CountryAPIWPF.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\16479\\.nuget\\packages\\awssdk.core\\3.5.1.41\\awssdk.core.3.5.1.41.nupkg.sha512",
+    "C:\\Users\\16479\\.nuget\\packages\\awssdk.dynamodbv2\\3.5.4\\awssdk.dynamodbv2.3.5.4.nupkg.sha512"
+  ],
+  "logs": []
+}

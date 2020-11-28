@@ -1,0 +1,25 @@
+﻿<Window x:Class="CountryAPIWPF.exchangeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CountryAPIWPF"
+        mc:Ignorable="d"
+        Title="exchangeWindow" Height="450" Width="800">
+    <Grid>
+        <ListBox x:Name="countries" Margin="29,77,565,31" SelectionChanged="countries_SelectionChanged">
+        </ListBox>
+        <ListBox x:Name="countries2" Margin="567,77,29,32" SelectionChanged="countries2_SelectionChanged">
+        </ListBox>
+        <TextBox x:Name="curBox" PreviewTextInput="NumberValidation" HorizontalAlignment="Center" Margin="0,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="151" Height="21"/>
+        <Button x:Name="excBtn" Content="Convert" HorizontalAlignment="Center" Margin="0,158,0,0" VerticalAlignment="Top" Height="24" Width="88" Click="excBtn_Click"/>
+        <Label Content="Convert From..." HorizontalAlignment="Left" Margin="29,46,0,0" VerticalAlignment="Top"/>
+        <Label Content="Convert To..." HorizontalAlignment="Left" Margin="567,46,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="rtnBtn" Content="Return" HorizontalAlignment="Center" Margin="0,353,0,0" VerticalAlignment="Top" Height="23" Width="87" Click="rtnBtn_Click"/>
+        <Label Content="Select two countries and enter a value to see how the money will exchange" HorizontalAlignment="Left" Margin="29,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="country1info" Content="" HorizontalAlignment="Left" Margin="324,63,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="country2info" Content="" HorizontalAlignment="Left" Margin="324,0,0,0" VerticalAlignment="Center"/>
+        <Label x:Name="Answer" Content="" HorizontalAlignment="Left" Margin="324,235,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
